@@ -1,0 +1,813 @@
+/* 
+    ==========================================================================
+    HOJA DE ESTILOS PRINCIPAL - TASK MANAGER 1.0
+    ==========================================================================
+    Autor: Nishix_03
+    Descripción: Definición de variables globales y estilos base para la aplicación.
+    Incluye paletas de colores para modos Claro (Silver) y Oscuro.
+*/
+
+/* 
+    ========================================
+    VARIABLES GLOBALES (:root)
+    ========================================
+    Aquí definimos los colores base, tipografías y efectos.
+    Seguimos un diseño 'Silver/Shiny' para el modo claro.
+*/
+:root {
+    /* --- Paleta de Colores: Modo Claro (Silver / Brilloso) --- */
+
+    /* Fondos */
+    --bg-header: #E8EAF6;
+    --bg-main: #d7dcf8;
+    /* Color de fondo principal: Gris azulado muy suave */
+    --bg-card: #FFFFFF;
+    /* Fondo de contenedores: Blanco puro para máximo brillo */
+
+    /* Textos */
+    --text-primary: #2C3E50;
+    /* Texto principal: Azul muy oscuro (Casi negro) para contraste */
+    --text-secondary: #7F8C8D;
+    /* Texto secundario: Gris metálico */
+    --text-highlight: #2980B9;
+    /* Texto destacado: Azul brillante */
+
+    /* Acentos y Decoración (Look Metálico) */
+    --border-color: #84a6bd;
+    /* Color de bordes: Plata */
+    --accent-silver: #ECF0F1;
+    /* Acento plateado claro */
+    --accent-color: #3498DB;
+    /* Color de énfasis principal: Azul vibrante */
+
+    /* --- Gradientes: Modo Claro (Estáticos y Profesionales) --- */
+    --grad-header: linear-gradient(to bottom, #F8F9FA, #E9ECEF);
+    /* Sutil degradado gris-blanco */
+    --grad-footer: linear-gradient(to top, #DFE4EA, #F1F2F6);
+    /* Base metálica suave */
+    --grad-main: linear-gradient(-45deg, #E0EAFC, #CFDEF3, #FFFFFF);
+    /* Animado (se mantiene igual) */
+    /* Animado */
+
+    /* Gradientes Botones (Modo Claro) */
+    --grad-btn-add: linear-gradient(135deg, #1D976C 0%, #93F9B9 100%);
+    /* Green/Teal */
+    --grad-btn-del: linear-gradient(135deg, #EB3349 0%, #F45C43 100%);
+    /* Red/Crimson */
+    --grad-btn-edit: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    /* Blue/Cyan */
+
+    /* Efectos de Sombra y Brillo (Neumorfismo Sutil / Glossy) */
+    --shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+    --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+
+    /* Tipografía (Basada en los imports de Google Fonts en HTML) */
+    --font-heading: 'JetBrains Mono', cursive;
+    /* Fuente para títulos retro/tech */
+    --font-body: 'Share Tech Mono', monospace;
+    /* Fuente principal para cuerpo y datos */
+    --font-ui: 'Orbitron', sans-serif;
+    /* Fuente para elementos de UI futuristas */
+}
+
+/* 
+    ========================================
+    PALETA DE COLORES - MODO OSCURO
+    ========================================
+    Se activa mediante el atributo data-theme="dark" en el body o html.
+    Utiliza colores opuestos/complementarios oscuros.
+*/
+[data-theme="dark"] {
+    /* --- Paleta de Colores: Modo Oscuro (Deep Tech) --- */
+
+    /* Fondos */
+    --bg-main: #121212;
+    /* Fondo principal: Negro profundo */
+    --bg-card: #1E1E1E;
+    /* Fondo de contenedores: Gris antracita */
+
+    /* Textos */
+    --text-primary: #ECF0F1;
+    /* Texto principal: Blanco humo (Opuesto a oscuro) */
+    --text-secondary: #95A5A6;
+    /* Texto secundario: Gris piedra claro */
+    --text-highlight: #63B3ED;
+    /* Texto destacado: Cian brillante */
+
+    /* Acentos y Decoración */
+    --border-color: #333333;
+    /* Color de bordes: Gris oscuro sutil */
+    --accent-silver: #2C3E50;
+    /* Plata oscurecido para fondos secundarios */
+    --accent-color: #3182CE;
+    /* Azul algo más profundo pero visible */
+
+    /* --- Gradientes: Modo Oscuro (Deep Tech - Estáticos) --- */
+    --grad-header: linear-gradient(to bottom, #0F2027, #203A43);
+    /* Elegante azul-verdoso oscuro */
+    --grad-footer: linear-gradient(to top, #000000, #1C1C1C);
+    /* Base sólida negra */
+    --grad-main: linear-gradient(-45deg, #0F2027, #203A43, #2C5364);
+    /* Midnight Tech */
+
+    /* Gradientes Botones (Modo Oscuro - Más profundos) */
+    --grad-btn-add: linear-gradient(135deg, #11998e 0%, #38ef7d 100%);
+    --grad-btn-del: linear-gradient(135deg, #cb2d3e 0%, #ef473a 100%);
+    --grad-btn-edit: linear-gradient(135deg, #3a7bd5 0%, #3a6073 100%);
+
+    /* Efectos de Sombra (Invertidos para oscuridad) */
+    --shadow-soft: 0 4px 6px rgba(0, 0, 0, 0.5), 0 1px 3px rgba(0, 0, 0, 0.4);
+    --shadow-hover: 0 10px 15px rgba(0, 0, 0, 0.6), 0 4px 6px rgba(0, 0, 0, 0.5);
+}
+
+/* 
+    ========================================
+    RESET BÁSICO Y ESTILOS GENERALES
+    ========================================
+*/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    /* Fuente por defecto */
+    transition: background-color 10s ease-in-out, color 1s ease-in-out;
+    /* Transición suave entre temas */
+    min-height: 100vh;
+    /* Ocupar toda la altura de la pantalla */
+    display: flex;
+    /* Flexbox para sticky footer */
+    flex-direction: column;
+}
+
+
+/* 
+==========================================================================
+. ANIMACIONES (KEYFRAMES)
+========================================================================== 
+   Centralizamos aquí todas las definiciones de movimiento.
+*/
+
+
+
+/* Gradiente Infinito (Main background) 
+   Mueve el fondo lentamente para dar vida */
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* 3.7 Elementos en grupo (App Content */
+@keyframes showelements {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 
+==========================================================================
+   4. TIPOGRAFÍA Y UTILIDADES
+========================================================================== 
+*/
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+h1 {
+    font-size: 1.5rem;
+    /* Orbitron es ancha pero mas normal */
+    line-height: 1.3;
+}
+
+p {
+    max-width: 70ch;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--accent-color);
+    text-decoration: dashed;
+}
+
+
+.header,
+.main {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+
+.header,
+.main,
+.footer {
+    border: none;
+    /* Quitamos bordes sólidos para dar paso a las sombras/gradientes */
+    box-shadow: var(--shadow-soft);
+}
+
+.header {
+    background: var(--grad-header);
+    /* Animación de entrada más rápida */
+}
+
+.footer {
+    background: var(--grad-footer);
+    /* Oculto inicialmente */
+    /* Sincronizado con el header */
+}
+
+.main {
+    background: var(--grad-main);
+    background-size: 400% 400%;
+    /* Necesario para la animación */
+    animation: gradientMove 15s ease infinite;
+    /* Animación lenta y suave */
+    flex: 1;
+    /* Empujar el footer hacia abajo */
+}
+
+/* 
+==========================================================================
+   Component: Header
+========================================================================== 
+*/
+
+.header__container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 1rem 1rem;
+    gap: 1rem;
+
+    /* Espaciado entre elementos del container */
+    /* FIX: Asegura que todos los hijos se centren horizontalmente */
+}
+
+/* Wrapper para el icono y el título */
+.header__brand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    /* Espacio entre icono y texto */
+    width: 100%;
+}
+
+.header__icon {
+    font-size: 1.5rem;
+    /* Eliminamos posicionamiento manual (top/left) */
+}
+
+.header__title {
+    /* Eliminamos posicionamiento manual */
+    margin-bottom: 0;
+    /* Quitamos margen inferior por defecto de h1 para alinear mejor */
+}
+
+
+.header__version,
+.header__tagline {
+    align-self: center;
+}
+
+.darkmode__button {
+    font: var(--font-ui);
+    color: var(--text-primary);
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    /* Borde sutil semi-transparente */
+    background: transparent;
+    /* Fondo transparente para glassmorphism */
+    backdrop-filter: blur(5px);
+    /* Efecto cristal */
+
+    border-radius: 50px;
+    /* Forma de píldora (Pill Shape) */
+    padding: 0.6rem 2rem;
+    align-self: center;
+
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.darkmode__button:hover {
+    background: rgba(var(--accent-silver), 0.1);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px rgba(52, 152, 219, 0.4);
+    /* Resplandor (Glow) */
+    transform: translateY(-2px);
+}
+
+/* 
+==========================================================================
+   Component: Main
+========================================================================== 
+*/
+
+.main__container {
+    display: flex;
+    /* Cambiamos Grid por Flex */
+    flex-direction: column;
+    /* Elementos, uno debajo del otro */
+    align-items: center;
+    /* Centramos todo horizontalmente */
+    width: 100%;
+}
+
+/* 
+   Animación Progresiva del Contenido 
+   (Staggered Animation)
+*/
+.app__content>* {
+    opacity: 0;
+    animation: showelements 0.8s ease-out forwards;
+}
+
+/* Retrasos progresivos para cada hijo directo de app__content */
+.app__content>*:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+/* Header de la App */
+.app__content>*:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+/* Formulario */
+.app__content>*:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+/* Lista de tareas */
+.app__content>*:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+/* Footer interno */
+
+.app__title {
+    text-align: center;
+    /* Animation applied here */
+    animation: showelements 0.8s ease-out forwards;
+}
+
+.add__form,
+.task__list {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.task__list {
+    padding-bottom: 1rem;
+    max-height: 60vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.task__list--title {
+    padding-bottom: 0;
+    margin-bottom: 0px;
+}
+
+.default__task__item {
+    width: 50%;
+    align-self: center;
+}
+
+.app__footer {
+    align-self: flex-start;
+    font-size: 0.85rem;
+    display: none;
+}
+
+.add__input {
+    align-self: center;
+    margin-bottom: 1rem;
+    border-radius: 12px;
+    padding: 0.8rem 1.2rem;
+    border: 1px solid rgba(128, 128, 128, 0.2);
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    /* Soft outer shadow */
+    width: 85%;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.add__input::placeholder {
+    color: #999;
+}
+
+.add__input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(52, 152, 219, 0.4);
+    /* Professional Glow */
+    transform: scale(1.02);
+    /* Subtle pop */
+}
+
+.task__list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: rgba(255, 255, 255, 0.4);
+    /* Fondo semi-transparente para legibilidad */
+    padding: 1rem;
+    /* Más padding */
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    /* Borde glassmorphism */
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    backdrop-filter: blur(5px);
+    /* Efecto cristal */
+}
+
+.task__list--title {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    background-color: var(--bg-card);
+    /* Uso de variable global */
+    padding: 1rem;
+    border-radius: 15px;
+    border: 1px solid var(--border-color);
+    /* Uso de variable global */
+    box-shadow: var(--shadow-soft);
+    text-align: center;
+    /* backdrop-filter: blur(5px); Opcional si la variable tiene transparencia, si no, es ignorado inocuamente */
+}
+
+.task__item {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-card);
+    padding: 0.8rem;
+    border-radius: 10px;
+    align-self: center;
+    width: 100%;
+    max-width: 400px;
+    /* Limite de ancho para tarjetas */
+    box-shadow: var(--shadow-soft);
+    border: none;
+    animation: showelements 1s ease-in-out;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.task__item:hover {
+    box-shadow: 0 10px 30px rgba(74, 213, 255, 0.753);
+    border-color: #3498db;
+}
+
+.task__buttons__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+/* Estilos Comunes para Botones (Gradient) */
+.task__button,
+.task__button--delete,
+.task__button--edit,
+.task__button--add {
+    align-self: center;
+    font-size: 0.5 rem;
+    border: none;
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.task__button--add {
+    width: 55%;
+}
+
+.task__button:hover,
+.task__button--delete:hover,
+.task__button--edit:hover,
+.task__button--add:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.25);
+}
+
+.task__button:active {
+    transform: translateY(0);
+}
+
+/* Estilos Específicos */
+.task__button--add {
+    background: var(--grad-btn-add);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    margin-left: 0.5rem;
+}
+
+.task__button--delete {
+    background: var(--grad-btn-del);
+    border-radius: 8px;
+    padding: 0.4rem;
+}
+
+.task__button--edit {
+    background: var(--grad-btn-edit);
+    border-radius: 8px;
+    padding: 0.4rem;
+}
+
+
+.hidden {
+    display: none;
+}
+
+/* 
+==========================================================================
+   Component: Footer
+========================================================================== 
+*/
+
+.footer__container {
+    padding: 1rem 1rem;
+}
+
+.app__info,
+.dev__info,
+.footer__description {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+}
+
+/* 
+==========================================================================
+   MEDIA QUERIES (DESKTOP & LARGE SCREENS)
+========================================================================== 
+   Adaptación para aprovechar el espacio en pantallas grandes (1024px+)
+*/
+
+/* 
+   MEDIA QUERIES (TABLET & INTERMEDIATE)
+   min-width: 768px --> width del app__content llevado a 60vh
+*/
+@media (min-width: 768px) {
+
+    /* --- Header & Form (Tablet) --- */
+    .header__container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        padding: 1rem 2rem;
+    }
+
+    .header__brand {
+        justify-content: flex-start;
+        width: auto;
+    }
+
+    /* --- Form (Row) --- */
+    .add__form {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        max-width: 800px;
+        margin: 0 auto 1.5rem auto;
+    }
+
+    .add__input {
+        margin-bottom: 0;
+        width: 60%;
+    }
+
+    .task__button--add {
+        width: 50%;
+        padding: 0.8rem 2rem;
+    }
+
+    /* --- Main App Content Width (Requested: 60vh) --- */
+    /* Nota: Usar 'vh' para width es poco común (depende de la altura), 
+       pero se aplica tal cual lo solicitado */
+    .app__content {
+        width: 60vh;
+        margin: 0 auto;
+        /* Centrado */
+        max-width: 100%;
+        /* Evitar desbordamiento en pantallas chatas */
+    }
+
+    /* --- Footer --- */
+    .footer__container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        /* Espaciado elegante */
+        align-items: center;
+        /* Alinear textos arriba */
+        text-align: left;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 0.5rem;
+    }
+
+    .app__info {
+        width: 40%;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .dev__info {
+        width: 40%;
+        align-items: flex-end;
+        /* Alinear contenido a la izquierda */
+        text-align: right;
+    }
+
+    .footer__description {
+        text-align: left;
+        max-width: 100%;
+    }
+}
+
+
+@media (min-width: 1024px) {
+
+    /* --- Header --- */
+    .header__container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+        max-width: 1200px;
+        margin: 0 auto;
+        /* Centrar el contenedor en pantallas muy anchas */
+        padding: 1rem 2rem;
+    }
+
+    .header__brand {
+        width: auto;
+        /* Dejar que ocupe solo lo necesario */
+        justify-content: flex-start;
+    }
+
+    /* --- Main Content --- */
+    .main__container {
+        max-width: 1000px;
+        /* Limitar ancho para que no se estire demasiado */
+        margin: 0 auto;
+    }
+
+    /* Restaurar formulario en fila para Desktop */
+    .add__form {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .add__input {
+        margin-bottom: 0;
+        width: 60%;
+    }
+
+    .task__button--add {
+        width: 50%;
+        /* Botón tamaño natural */
+        padding: 0.8rem 2rem;
+    }
+
+    .task__list {
+        justify-self: center;
+        width: 120vh;
+        /* Corregido de 120vh a 100% del contenedor padre */
+        max-width: 900px;
+        /* Mantener consistencia con main container */
+    }
+
+    .task__item {
+        align-self: center;
+        /* Centrado en la lista */
+        max-width: none;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        /* Texto expande, botones ajustados */
+        align-items: center;
+        /* Centrar verticalmente */
+        gap: 1rem;
+        padding: 1rem 2rem;
+    }
+
+    .task__name {
+        text-align: left;
+        margin: 0;
+        font-size: 1.2rem;
+    }
+
+    /* Ocultar texto de botones, dejar solo iconos */
+    .task__buttons__container .task__button {
+        font-size: 0;
+        /* Oculta el texto "Delete"/"Edit" */
+        padding: 0.8rem;
+        /* Botón cuadrado/circular */
+        width: 45px;
+        height: 45px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        /* Hacerlos redondos */
+    }
+
+    .task__buttons__container .task__button i {
+        font-size: 1.2rem;
+        /* Restaurar tamaño del icono */
+    }
+
+    .default__task__item {
+        width: 100%;
+        text-align: center;
+    }
+
+    /* --- Footer --- */
+    .footer__container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        /* Espaciado elegante */
+        align-items: center;
+        /* Alinear textos arriba */
+        text-align: left;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem 0.5rem;
+    }
+
+    .app__info {
+        width: 40%;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .dev__info {
+        width: 40%;
+        align-items: flex-end;
+        /* Alinear contenido a la izquierda */
+        text-align: right;
+    }
+
+    .footer__description {
+        text-align: left;
+        max-width: 100%;
+    }
+}

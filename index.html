@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskList 1.0 - Main Menu</title>
+
+    <!--SEO Básico-->
+    <title>Iván Rodas - TaskManager 1.0 - Main Menu</title>
+    <meta name="description" content="TaskList 1.0 - Main Menu">
+    <meta name="keywords"
+        content="professional profile, web developer, web dev, portfolio, HTML, CSS, JavaScript, web develpoment">
+    <meta name="author" content="Iván Rodas">
+    <meta name="robots" content="index, follow">
+
+
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bitcount+Prop+Single:slnt,wght,CRSV,ELSH,ELXP@-8..0,100..900,0..1,0..100,0..100&family=Fira+Code:wght@300..700&family=Inconsolata:wght@200..900&family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Orbitron:wght@400..900&family=Press+Start+2P&family=Share+Tech+Mono&family=VT323&display=swap"
+        rel="stylesheet">
+
+    <!-- CDN - libreria de iconos✨ -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="style.css">
+    <script src="buttons.js" defer></script>
+</head>
+<!-- Fin de la sección Head -->
+
+<!-- Inicio de la sección Body -->
+
+<body>
+    <!-- 
+    ========================================
+    HEADER PRINCIPAL
+    ========================================
+    -->
+    <header class="header">
+        <div class="header__container">
+
+            <div class="header__brand">
+                <i class="fa-solid fa-list header__icon"></i>
+                <h1 class="header__title">TaskManager</h1>
+            </div>
+
+            <p class="header__version">Version: 1.0</p>
+            <p class="header__tagline">Developed by Nishix_03</p>
+
+            <button class="darkmode__button">
+                <i class="fa-solid fa-circle-half-stroke"></i>
+                DarkMode: Off
+            </button>
+
+        </div>
+    </header>
+
+    <!-- 
+    ========================================
+    MAIN PRINCIPAL
+    ========================================
+    -->
+    <main class="main">
+        <div class="main__container">
+            <!-- Sección Header de la App -->
+            <section class="app__header">
+                <h2 class="app__title">Welcome back, **User**!</h2>
+            </section>
+
+            <!-- Sección Content de la App -->
+            <section class="app__content">
+                <form action="" class="add__form">
+                    <input type="text" placeholder="Add a new task" class="add__input">
+                    <button class="task__button task__button--add">
+                        Add Task
+                        <i class="fa-solid fa-plus"></i>
+                    </button>
+                </form>
+
+                <!-- Lista de tareas -->
+                <ul class="task__list">
+
+                    <!-- Título de la lista de tareas -->
+                    <h3 class="task__list--title">Your Task List:</h3>
+
+                    <!-- Texto default -->
+                    <p class="default__task__item">You have no tasks registered</p>
+                    <!-- Final de Item de ejemplo de la lista de tareas -->
+                </ul>
+                <!-- Final de la lista de tareas -->
+            </section>
+
+            <!-- Sección Footer de la App -->
+            <section class="app__footer">
+                <p class="app__footer--text">Developed by Nishix_03</p>
+            </section>
+        </div>
+    </main>
+
+    <!-- 
+    ========================================
+    FOOTER PRINCIPAL
+    ========================================
+    -->
+    <footer class="footer">
+        <section class="footer__container">
+
+            <div class="app__info">
+                <h4 class="footer__title">About the App</h4>
+                <p class="footer__description">TaskList 1.0 is a simple task manager app that allows you to create,
+                    read,
+                    update, and delete tasks.</p>
+                <p class="footer__description footer__description--technologies">Technologies used: HTML, CSS,
+                    JavaScript
+                </p>
+            </div>
+            <div class="dev__info">
+                <!-- Imagen del Desarrollador -->
+                <picture class="dev__info--picture">
+                    <img src="" alt="">
+                </picture>
+
+                <!-- Titulo de sección -->
+                <h4 class="footer__title">About the Developer</h4>
+
+                <!-- Descripción de la sección -->
+                <p class="footer__description">I'm a junior web developer with a passion for creating</p>
+
+                <!-- Contacto del Desarrollador -->
+                <div class="dev__contact">
+
+                    <p class="footer__contact--email">Email: nishix_03@gmail.com</p>
+
+                    <p class="footer__contact--linkedin">LinkedIn: <a
+                            href="https://www.linkedin.com/in/nishix-03/">Nishix_03</a></p>
+
+                    <p class="footer__contact--github">GitHub: <a href="https://github.com/nishix-03">Nishix_03</a>
+                    </p>
+
+                    <p class="footer__contact--portfolio">My own Portfolio: <a
+                            href="https://nishix-03.github.io/">Nishix_03</a></p>
+                </div>
+            </div>
+
+        </section>
+    </footer>
+</body>
+<!-- Fin de la sección Body -->
+
+</html>
